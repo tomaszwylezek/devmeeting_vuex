@@ -1,3 +1,5 @@
+import path from 'path';
+import fs from 'fs';
 import FMMode from 'frontmatter-markdown-loader/mode';
 import hljs from 'highlight.js/lib/highlight';
 import javascript from 'highlight.js/lib/languages/javascript';
@@ -7,6 +9,13 @@ import css from 'highlight.js/lib/languages/css';
 hljs.registerLanguage('css', css);
 hljs.registerLanguage('xml', xml);
 hljs.registerLanguage('javascript', javascript);
+
+function getPaths() {
+  return fs
+    .readdirSync(path.resolve(__dirname, 'articles'))
+    .filter(filename => path.extname(filename) === '.md')
+    .map(filename => `posty/${path.parse(filename).name}`);
+}
 
 export default {
   mode: 'universal',
@@ -56,6 +65,9 @@ export default {
     // Doc: https://github.com/nuxt-community/stylelint-module
     '@nuxtjs/stylelint-module',
   ],
+  generate: {
+    routes: getPaths(),
+  },
   /*
    ** Nuxt.js modules
    */
