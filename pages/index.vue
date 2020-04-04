@@ -17,12 +17,12 @@
 </template>
 
 <script>
-import Card from '~/components/homepage/Card'
+import Card from '~/components/homepage/Card';
 export default {
   name: 'HomePage',
 
   components: {
-    Card
+    Card,
   },
   data: () => ({
     articles: [
@@ -33,7 +33,7 @@ export default {
         uploadAt: '2020-02-20',
         author: 'kfras',
         title: 'Wstep do nuxt czesc 1',
-        desc: 'To pierwszy artykuł z serii artykułów'
+        desc: 'To pierwszy artykuł z serii artykułów',
       },
       {
         id: 'article2',
@@ -42,9 +42,9 @@ export default {
         uploadAt: '2020-02-20',
         author: 'kfras',
         title: 'Wstep do nuxt czesc 2',
-        desc: 'To drugi artykuł z serii artykułów'
-      }
-    ]
-  })
-}
+        desc: 'To drugi artykuł z serii artykułów',
+      },
+    ],
+  }),
+};
 </script>

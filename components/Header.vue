@@ -1,8 +1,16 @@
 <template>
   <b-navbar type="is-primary" spaced>
     <template slot="brand">
-      <b-navbar-item tag="nuxt-link" :to="{ name: 'index' }" class="logo-link">
-        <img :src="require('~/assets/logo.png')" alt="" class="logo" />
+      <b-navbar-item
+        tag="nuxt-link"
+        :to="{ name: 'index' }"
+        class="logo-link"
+      >
+        <img
+          :src="require('~/assets/logo.png')"
+          alt=""
+          class="logo"
+        />
       </b-navbar-item>
     </template>
     <template slot="start">

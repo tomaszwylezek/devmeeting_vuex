@@ -4,7 +4,8 @@
       <figure class="image is-4by3">
         <img
           :src="
-            article.imgURL || 'https://nuxtjs.org/logos/nuxt-icon-white.png'
+            article.imgURL ||
+              'https://nuxtjs.org/logos/nuxt-icon-white.png'
           "
           :alt="`Zdjęcie ${article.name}`"
         />
@@ -27,7 +28,9 @@
       <div class="content">
         {{ article.desc }}
         <br />
-        <time :datetime="article.uploadAt">{{ article.uploadAt }}</time>
+        <time :datetime="article.uploadAt">{{
+          article.uploadAt
+        }}</time>
       </div>
     </div>
   </article>
@@ -37,8 +40,8 @@ export default {
   props: {
     article: {
       type: Object,
-      required: true
-    }
-  }
-}
+      required: true,
+    },
+  },
+};
 </script>
