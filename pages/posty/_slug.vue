@@ -1,14 +1,26 @@
 <template>
-  <div>
-    <TestComponent />
+  <div class="container">
+    <div class="section">
+      <component :is="selectedArticle" />
+    </div>
   </div>
 </template>
 
 <script>
-import test from '~/articles/readme-github.md';
 export default {
-  components: {
-    TestComponent: test.vue.component,
+  data: () => ({
+    attributes: {},
+    selectedArticle: null,
+  }),
+
+  created() {
+    const {
+      params: { slug },
+    } = this.$route;
+
+    const markdown = require(`~/articles/${slug}.md`);
+    this.attributes = markdown.attributes;
+    this.selectedArticle = markdown.vue.component;
   },
 };
 </script>

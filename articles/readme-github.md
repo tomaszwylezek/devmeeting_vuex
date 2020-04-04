@@ -1,3 +1,10 @@
+---
+title: 'Test '
+date: 2020-04-02T08:37:35.019Z
+imgURL: https://cdn.imgbin.com/4/4/8/imgbin-vue-js-logo-gray-and-green-v-XDrZR0nGh6pUau0QTzQrgeXhh.jpg
+desc: Test showing loader features
+---
+
 # nuxt-blog-starter
 
 > nuxt-blog-starter application

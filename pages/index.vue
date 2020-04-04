@@ -25,26 +25,27 @@ export default {
     Card,
   },
   data: () => ({
-    articles: [
-      {
-        id: 'article1',
-        slug: 'wstep-do-nuxt-czesc-1',
-        imgURL: 'https://nuxtjs.org/logos/nuxt-icon-white.png',
-        uploadAt: '2020-02-20',
-        author: 'kfras',
-        title: 'Wstep do nuxt czesc 1',
-        desc: 'To pierwszy artykuł z serii artykułów',
-      },
-      {
-        id: 'article2',
-        slug: 'wstep-do-nuxt-czesc-2',
-        imgURL: 'https://nuxtjs.org/logos/nuxt-icon-white.png',
-        uploadAt: '2020-02-20',
-        author: 'kfras',
-        title: 'Wstep do nuxt czesc 2',
-        desc: 'To drugi artykuł z serii artykułów',
-      },
-    ],
+    articles: [],
   }),
+
+  created() {
+    const req = require.context('~/articles', false, /\.(md)$/);
+
+    req.keys().forEach(filePath => {
+      const key = filePath.replace('./', '');
+
+      const { attributes } = require(`~/articles/${key}`);
+
+      this.articles.push({
+        id: key,
+        slug: key.replace('.md', ''),
+        imgURL: attributes.imgURL,
+        uploadAt: attributes.uploadAt,
+        author: attributes.author,
+        title: attributes.title,
+        desc: attributes.desc,
+      });
+    });
+  },
 };
 </script>
